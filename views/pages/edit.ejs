@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <%- include('../partials/head.ejs') %>
+    </head>
+    <body>
+    <div class="container">
+        <header>
+            <%- include('../partials/header.ejs') %>
+        </header>
+        <main>
+            <div class="jumbotron">
+                <h1> Editar registro </h1>
+            </div>
+            <% data.forEach(function(details) { %>
+            <form action="/edit/<%= details._id %>" method="POST">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" value="<%= details.name %>" name="name">
+                    </td>
+                    <td>
+                        <input type="text" value="<%= details.surname %>" name="surname">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                        <button class="btn btn-primary" type="submit">Editar</button>
+                        <button class="btn bg-warning"> <a class="text-dark" href="/show">Ver todos</a> </button>
+                    </td>
+                </tr>
+            </table>
+            </form>
+            <% }) %>
+        </main>
+    </div>
+        <footer>
+            <%- include('../partials/footer.ejs') %>      
+        </footer>
+    </body>
+</html>

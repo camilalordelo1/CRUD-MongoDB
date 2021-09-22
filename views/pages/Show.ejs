@@ -1,0 +1,52 @@
+<!DOCTYPE
+html>
+<html lang="pt-br">
+    <head>
+        <%- include('../partials/head.ejs') %>
+    </head>
+    <body>
+    <div class="container">
+        <header>
+            <%- include('../partials/header.ejs') %>
+        </header>
+    <main>
+        <div class="jumbotron">
+            <h1> Visualizar registros </h1>
+        </div>
+        <div class="container">
+            <table class="table border border-white rounded mt-5 table-responsive">
+                <thead>
+                    <tr>
+                        <th class="align-middle h5 border-right border-left">Nome</th>
+                        <th class="align-middle h5 border-right">Sobrenome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(function(details) { %>
+                    <tr>
+                        <td class="align-middle bg-secondary text-white text-center border-right"><%= details.name %></td>
+                        <td class="align-middle bg-secondary text-white text-center"><%= details.surname %></td>
+
+                        <!-- EDITAR -->
+                        <td class="border-0"><a class="btn btn-primary" href="/edit/<%= details._id %>">Editar</a>
+                        
+                        <td class="border-0">
+                        <!-- DELETAR -->
+                        <div id="actions">
+                            <a  href="/delete/<%= details._id %>" class="btn btn-danger text-white">Deletar</a></td>
+                        </div>
+                        </td>
+                    </tr>
+
+                    <% }) %>
+                </tbody>
+                
+            </table>
+        </div> 
+    </main>
+    </div>
+    <footer>
+        <%- include('../partials/footer.ejs') %>
+    </footer>
+    </body>
+</html> 
